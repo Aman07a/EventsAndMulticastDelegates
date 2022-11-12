@@ -6,7 +6,29 @@ using System.Threading.Tasks;
 
 namespace EventsAndMulticastDelegates
 {
-    internal class RenderingEngine
+    // RenderingEngine Class
+    public class RenderingEngine
     {
+        // Simple constructor
+        public RenderingEngine()
+        {
+            // Subscribe to the OnGameStart and OnGameOver events.
+            GameEventManager.OnGameStart += StartGame;
+            GameEventManager.OnGameOver += GameOver;
+        }
+
+        // At the start of the game.
+        // We want to enable the rendering engine and start drawing the visuals.
+        private void StartGame()
+        {
+            Console.WriteLine("Rendering Engine Started");
+            Console.WriteLine("Drawing Visuals....");
+        }
+
+        // When the game is over, we want to stop our rendering engine.
+        private void GameOver()
+        {
+            Console.WriteLine("Rendering Engine Stopped");
+        }
     }
 }
